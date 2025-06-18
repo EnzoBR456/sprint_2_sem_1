@@ -4,11 +4,15 @@ Thiago Shiromoto Sardinha RM 98483
 Vitor Hugo Ferreira de Andrade RM 99635
 
 comando para compilar: mvn spring-boot:run
+
 localização do h2: ./data/readings.mv.db
 
 endpoints disponíveis:
+
 POST	/api/readings	Cadastra nova leitura
+
 GET	/api/readings	Lista todas as leituras
+
 GET	/api/readings/sensor/{sensorId}	Lista leituras de um sensor
 
 testes curl:

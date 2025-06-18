@@ -1,11 +1,6 @@
 package com.example.backend.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-
+import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
@@ -16,18 +11,23 @@ public class Reading {
     private Long id;
 
     private String sensorId;
+    private String nome;           // Novo campo: nome do sensor
+    private String status;         // Novo campo: status (ex: "OK")
 
-    @Column(name = "reading_value") // Evita conflito com palavra reservada
+    @Column(name = "reading_value")
     private Double readingValue;
 
     private LocalDateTime timestamp;
 
-    // Construtores
+    // Construtor vazio obrigatório
     public Reading() {}
 
-    public Reading(String sensorId, Double readingValue) {
+    // Construtor personalizado
+    public Reading(String sensorId, String nome, Double readingValue, String status) {
         this.sensorId = sensorId;
+        this.nome = nome;
         this.readingValue = readingValue;
+        this.status = (status != null && !status.isEmpty()) ? status : "OK";
         this.timestamp = LocalDateTime.now();
     }
 
@@ -36,16 +36,28 @@ public class Reading {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public String getSensorId() {
         return sensorId;
     }
 
     public void setSensorId(String sensorId) {
         this.sensorId = sensorId;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public Double getReadingValue() {
@@ -64,3 +76,4 @@ public class Reading {
         this.timestamp = timestamp;
     }
 }
+

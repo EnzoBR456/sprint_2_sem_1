@@ -3,21 +3,25 @@ Enzo dos Santos Beserra RM 552340
 Thiago Shiromoto Sardinha RM 98483
 Vitor Hugo Ferreira de Andrade RM 99635
 
-comando para compilar: mvn spring-boot:run
+Instruções para rodar backend e frontend em conjunto:
+rode primeiro o Backend, basta clicar no arquivo BackendApplication e depois clicar no símbolo de play que fica no superior direito e depois rode o Frontend usando o npx expo start, assim eles funcionaram devidamente, no frontend use o web para abrir o aplicativo.
 
-localização do h2: ./data/readings.mv.db
+## Como rodar
+Backend: mvn spring-boot:run
 
-endpoints disponíveis:
+Frontend: npm install 
+npx react-native run-android`
 
-POST	/api/readings	Cadastra nova leitura
-
-GET	/api/readings	Lista todas as leituras
-
-GET	/api/readings/sensor/{sensorId}	Lista leituras de um sensor
-
-testes curl:
-curl -X POST http://localhost:8080/api/readings -H "Content-Type: application/json" -d "{\"sensorId\":\"temperatura\",\"nome\":\"Sensor de angulo\",\"status\":\"OK\",\"readingValue\":32,\"timestamp\":\"2025-06-17T09:00:00\"}"
-
-curl http://localhost:8080/api/readings
+Imagens:
+as imagens dos testes estão na pasta image.
+![Tela 1](1.png)
+![Tela 2](2.png)
+![Tela 3](3.png)
+![Tela 4](4.png)
+![Tela 5](5.png)
 
 
+
+API
+- `GET http://localhost:8080/api/readings`
+- `POST http://localhost:8080/api/readings`
